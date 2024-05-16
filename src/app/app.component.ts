@@ -9,6 +9,4 @@ import { QuizBodyComponent } from './quiz-body/quiz-body.component';
   imports: [RouterOutlet, QuizNavComponent, QuizBodyComponent],
   templateUrl: './app.component.html',
 })
-export class AppComponent {
-  title = 'quiz';
-}
+export class AppComponent {}

@@ -5,6 +5,9 @@
     <p>TIME REMAINING <span class="ml-2 text-lg text-teal-500">500</span></p>
   </div>
   <!-- Body main -->
+  @if (quizStarted) {
+  <app-quiz-question [question]="questions[currentQuestion]" />
+  } @else {
   <div class="flex flex-col gap-y-8 text-white">
     <h1 class="text-3xl">Start JavaScript Quiz</h1>
     <p class="font-light">
@@ -13,7 +16,22 @@
       concepts, array, DOM, and<br />other topics.
     </p>
   </div>
+  }
   <div class="mb-8 flex justify-end">
-    <button class="px-16 py-4 bg-sky-500 text-white">Start quiz</button>
+    @if (quizStarted) {
+    <button
+      class="px-16 py-4 bg-sky-500 text-white"
+      (click)="currentQuestion = currentQuestion + 1"
+    >
+      Next question
+    </button>
+    } @else {
+    <button
+      class="px-16 py-4 bg-sky-500 text-white"
+      (click)="quizStarted = true"
+    >
+      Start quiz
+    </button>
+    }
   </div>
 </section>
